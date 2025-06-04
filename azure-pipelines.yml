@@ -32,8 +32,10 @@ stages:
       - job: ScanJob
         steps:
           - script: |
-              targetBranch="${SYSTEM_PULLREQUEST_TARGETBRANCH:-master}"
-              sourceBranch="${BUILD_SOURCEBRANCHNAME:-master}"
+
+              # targetBranch="${SYSTEM_PULLREQUEST_TARGETBRANCH:master}"
+
+              # sourceBranch="${BUILD_SOURCEBRANCHNAME:minor}"
               
               echo "Source branch: $sourceBranch"
               echo "Target branch: $targetBranch"
@@ -49,7 +51,7 @@ stages:
 
               sudo /root/.local/bin/s1-cns-cli scan secret \
                 -d ./ \
-                --pull-request origin/$sourceBranch origin/$targetBranch \
+                --pull-request origin/minor origin/master \
                 --publish-result \
                 --repo-full-name gameblezz/juice-shop \
                 --repo-url "https://github.com/gameblezz/juice-shop" \
