@@ -22,6 +22,7 @@ stages:
         steps:
           - checkout: none
           - script: |
+              pwd
               git clone https://github.com/gameblezz/juice-shop.git
             displayName: 'Git Clone Juice Shop'
 
