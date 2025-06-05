@@ -33,6 +33,7 @@ stages:
       - job: ScanJob
         steps:
           - script: |
+              set -e
               targetBranch="${SYSTEM_PULLREQUEST_TARGETBRANCH:master}"
               sourceBranch="${BUILD_SOURCEBRANCHNAME:minor}"
               
